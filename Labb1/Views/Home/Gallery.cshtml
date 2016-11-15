@@ -1,0 +1,11 @@
+﻿@model Labb1.Models.ModelGallery
+@{
+    ViewBag.Title = "My Photo Gallery";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+ @foreach (var image in Model.Image)
+ {
+    <img src="@Url.Content(image)" alt="Hejsan" />
+ }

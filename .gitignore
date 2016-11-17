@@ -210,3 +210,12 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+/Labb1/Views/Home/Upload.cshtml
+/Labb1/MVCDB.tt
+/Labb1/MVCDB.edmx.diagram
+/Labb1/MVCDB.edmx
+/Labb1/MVCDB.Designer.cs
+/Labb1/MVCDB.cs
+/Labb1/MVCDB.Context.tt
+/Labb1/MVCDB.Context.cs
+/Labb1/Image.cs

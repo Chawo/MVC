@@ -10,6 +10,7 @@ namespace Labb1.Controllers
 {
     public class HomeController : Controller
     {
+        static List<ModelGallery> Images = new List<ModelGallery>();
         public ActionResult Index()
         {
             return View();
@@ -39,6 +40,26 @@ namespace Labb1.Controllers
 
             return View(photos);
 
+        }
+
+
+        public ActionResult Upload()
+        {
+            return View();
+        }
+
+        
+        [HttpPost]
+        public ActionResult Upload(ModelGallery Image, HttpPostedFileBase file)
+        {
+            if (!ModelState.IsValid) { return View(Image); }
+            if (file == null)
+            {
+                ModelState.AddModelError("error", "Ingen bild?");
+                return View(Image);
+            }
+            file.SaveAs(Path.Combine(Server.MapPath("~/Images"), file.FileName));
+            return View();
         }
     }
 }

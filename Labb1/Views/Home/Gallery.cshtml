@@ -1,11 +1,19 @@
-﻿@model Labb1.Models.ModelGallery
+﻿@model List<Labb1.Models.ModelGallery>
 @{
     ViewBag.Title = "My Photo Gallery";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
-
- @foreach (var image in Model.Image)
+@{ 
+ foreach (var image in Model)
  {
-    <img src="@Url.Content(image)" alt="Hejsan" />
+        <img src="~/Images/@image.Name" width="400px" />
+
+    <div class="caption">
+        <h2>@image.Id</h2>
+        <h2>@image.Name</h2>
+        @Html.ActionLink("Show Image", "ShowImage", "Home", new { Id = image.Id }, null)
+        @Html.ActionLink("Delete Image", "DeleteAImage", "Home", new { Id = image.Id }, null)
+    </div>
  }
+}

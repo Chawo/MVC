@@ -11,6 +11,16 @@ namespace Labb1.Controllers
     public class HomeController : Controller
     {
         static List<ModelGallery> Images = new List<ModelGallery>();
+        public HomeController()
+        {
+            if (!Images.Any())
+            { 
+                Images.Add(new ModelGallery { Id = Guid.NewGuid(), Name = "starWars.jpg" });
+                Images.Add(new ModelGallery { Id = Guid.NewGuid(), Name = "sunset.jpg" });
+                Images.Add(new ModelGallery { Id = Guid.NewGuid(), Name = "surf.jpg" });
+                Images.Add(new ModelGallery { Id = Guid.NewGuid(), Name = "tiger.jpg" });
+            }
+        }
         public ActionResult Index()
         {
             return View();
@@ -38,7 +48,14 @@ namespace Labb1.Controllers
             };
              
 
-            return View(photos);
+            return View(Images);
+
+        }
+
+        public ActionResult ShowImage(Guid Id)
+        {
+            var showImage = Images.FirstOrDefault(x => x.Id == Id);
+            return View(showImage);
 
         }
 
@@ -60,6 +77,27 @@ namespace Labb1.Controllers
             }
             file.SaveAs(Path.Combine(Server.MapPath("~/Images"), file.FileName));
             return View();
+        }
+
+        public ActionResult DeleteAImage(Guid Id)
+        {
+            var image = Images.FirstOrDefault(x => x.Id == Id);
+            return View(image);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteAImage(Guid id, ModelGallery Image)
+        {
+
+            var p = Images.FirstOrDefault(x => x.Id == id);
+            string fullPath = Request.MapPath("~/Images/" + p.Name);
+
+            if (System.IO.File.Exists(fullPath))
+            {
+                System.IO.File.Delete(fullPath);
+                Images.Remove(p);
+            }
+            return RedirectToAction("Gallery");
         }
     }
 }

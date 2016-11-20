@@ -215,7 +215,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\night.jpg" />
     <Content Include="Images\starWars.jpg" />
     <Content Include="Images\sunset.jpg" />
     <Content Include="Images\surf.jpg" />
@@ -275,6 +274,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Gallery.cshtml" />
     <Content Include="Views\Home\Upload.cshtml" />
+    <Content Include="Views\Home\DeleteAImage.cshtml" />
+    <Content Include="Views\Home\ShowImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

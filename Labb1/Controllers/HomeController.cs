@@ -19,6 +19,7 @@ namespace Labb1.Controllers
                 Images.Add(new ModelGallery { Id = Guid.NewGuid(), Name = "sunset.jpg" });
                 Images.Add(new ModelGallery { Id = Guid.NewGuid(), Name = "surf.jpg" });
                 Images.Add(new ModelGallery { Id = Guid.NewGuid(), Name = "tiger.jpg" });
+                Images.Add(new ModelGallery { Id = Guid.NewGuid(), Name = "Schampoo.jpg" });
             }
         }
         public ActionResult Index()

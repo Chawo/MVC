@@ -1,6 +1,7 @@
 ﻿@model List<Labb1.Models.ModelGallery>
 @{
     ViewBag.Title = "My Photo Gallery";
+
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
@@ -16,4 +17,11 @@
         @Html.ActionLink("Delete Image", "DeleteAImage", "Home", new { Id = image.Id }, null)
     </div>
  }
+}
+
+@section bottom{ 
+<h2> @Html.Label("Latest image uploaded"):</h2>
+    <img src="~/Images/@Model.Last().Name" width="100px" />
+    <p>@Html.Label(Model.Last().Name.ToString())</p>
+    <p>@Html.Label(Model.Last().Id.ToString())</p>
 }

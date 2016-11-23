@@ -73,7 +73,7 @@ namespace Labb1.Controllers
             if (!ModelState.IsValid) { return View(Image); }
             if (file == null)
             {
-                ModelState.AddModelError("error", "Ingen bild?");
+                ModelState.AddModelError("Error", "Det finns ingen bild att ladda upp?");
                 return View(Image);
             }
             file.SaveAs(Path.Combine(Server.MapPath("~/Images"), file.FileName));

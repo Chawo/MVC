@@ -15,11 +15,11 @@ namespace Labb1.Controllers
         {
             if (!Images.Any())
             { 
-                Images.Add(new ModelGallery { Id = Guid.NewGuid(), Name = "starWars.jpg" });
-                Images.Add(new ModelGallery { Id = Guid.NewGuid(), Name = "sunset.jpg" });
-                Images.Add(new ModelGallery { Id = Guid.NewGuid(), Name = "surf.jpg" });
-                Images.Add(new ModelGallery { Id = Guid.NewGuid(), Name = "tiger.jpg" });
-                Images.Add(new ModelGallery { Id = Guid.NewGuid(), Name = "Schampoo.jpg" });
+                Images.Add(new ModelGallery { Id = Guid.NewGuid(), Name = "starWars.jpg", ImageComments = new List<Comments> { new Comments { CommentsImages = "Star Wars Comments" } } });
+                Images.Add(new ModelGallery { Id = Guid.NewGuid(), Name = "sunset.jpg", ImageComments = new List<Comments> { new Comments { CommentsImages = "Sunset Comments" } } });
+                Images.Add(new ModelGallery { Id = Guid.NewGuid(), Name = "surf.jpg", ImageComments = new List<Comments> { new Comments { CommentsImages = "Surf Comments" } } });
+                Images.Add(new ModelGallery { Id = Guid.NewGuid(), Name = "tiger.jpg", ImageComments = new List<Comments> { new Comments { CommentsImages = "Tiger Comments" } } });
+                Images.Add(new ModelGallery { Id = Guid.NewGuid(), Name = "Schampoo.jpg", ImageComments = new List<Comments> { new Comments { CommentsImages = "Schampoo Comments" } } });
             }
         }
         public ActionResult Index()
@@ -57,6 +57,15 @@ namespace Labb1.Controllers
         {
             var showImage = Images.FirstOrDefault(x => x.Id == Id);
             return View(showImage);
+
+        }
+
+        [HttpPost]
+        public ActionResult ShowImage(Guid Id, string ImageComment)
+        {
+            var p = Images.FirstOrDefault(x => x.Id == Id);
+            p.ImageComments.Add(new Comments { CommentsImages = ImageComment });
+            return View(p);
 
         }
 
@@ -100,5 +109,6 @@ namespace Labb1.Controllers
             }
             return RedirectToAction("Gallery");
         }
+         
     }
 }

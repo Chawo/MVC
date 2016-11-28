@@ -11,6 +11,9 @@ namespace Labb1.Models
         public string Name { get; set; }
         public string Url { get; set; }
 
+        public List<Comments> ImageComments { get; set; }
+
         public IEnumerable<string> Image { get; set; }
+
     }
 }

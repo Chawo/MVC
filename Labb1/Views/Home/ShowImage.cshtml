@@ -7,3 +7,21 @@
 <h2>ShowImage</h2>
 
 <img src="~/Images/@Model.Name" width="1000px"/>
+
+@using (Html.BeginForm())
+{
+    <div class="form-actions no-color">
+        <input type="text" name="ImageComment" id="ImageComment" />
+        <input type="submit" value="Add" class="btn btn-default" /> |
+        @Html.ActionLink("Back to Gallery", "Gallery")
+        <br />
+        @{
+            foreach (var comment in Model.ImageComments)
+            {
+                @comment.CommentsImages<br />
+            }
+        }
+    </div>
+
+}
+

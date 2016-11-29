@@ -109,6 +109,7 @@ namespace Labb1.Controllers
             }
             return RedirectToAction("Gallery");
         }
-         
+
+        
     }
 }

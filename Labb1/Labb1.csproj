@@ -204,6 +204,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AlbumImages.cs" />
     <Compile Include="Models\AlbumModel.cs" />
     <Compile Include="Models\Comments.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -283,6 +284,8 @@
     <Content Include="Views\Home\DeleteAImage.cshtml" />
     <Content Include="Views\Home\ShowImage.cshtml" />
     <Content Include="Views\Album\CreateAlbum.cshtml" />
+    <Content Include="Views\Album\ListAlbums.cshtml" />
+    <Content Include="Views\Album\AddImageToAlbums.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Albums\" />
@@ -290,6 +293,7 @@
     <Folder Include="Areas\Administration\Controllers\" />
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
+    <Folder Include="Views\AlbumImages\" />
     <Folder Include="Views\Comments\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,24 @@
+﻿@model Labb1.Models.AlbumImages
+
+@{
+    ViewBag.Title = "AddImageToAlbums";
+}
+
+<h2>AddImageToAlbums</h2>
+@using (Html.BeginForm())
+{
+    foreach (var image in Model.Images)
+    {
+        <div>
+            <img src="~/Images/@image.Name" />
+            <input type="checkbox" name="images[]" value="@image.Id" />
+        </div>
+    }
+    <select name="albumID">
+        @foreach (var album in Model.Albums)
+        {
+            <option value="@album.AlbumID">@album.Name</option>
+        }
+    </select>
+    <input type="submit" value="Add To Album" class="btn btn-default" />
+}

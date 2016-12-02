@@ -12,6 +12,7 @@ namespace Labb1.Models
         public string Url { get; set; }
 
         public List<Comments> ImageComments { get; set; }
+        public Guid AlbumID { get; set; }
 
         public IEnumerable<string> Image { get; set; }
 

@@ -10,7 +10,7 @@ namespace Labb1.Controllers
 {
     public class HomeController : Controller
     {
-        static List<ModelGallery> Images = new List<ModelGallery>();
+        public static List<ModelGallery> Images = new List<ModelGallery>();
         public HomeController()
         {
             if (!Images.Any())

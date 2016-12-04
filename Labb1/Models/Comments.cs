@@ -8,6 +8,7 @@ namespace Labb1.Models
     public class Comments 
     {
         public string CommentsImages { get; set; }
+        public string CommentsAlbums { get; set; }
 
     }
 }

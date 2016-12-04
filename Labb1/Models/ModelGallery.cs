@@ -9,12 +9,11 @@ namespace Labb1.Models
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public string Url { get; set; }
 
         public List<Comments> ImageComments { get; set; }
         public Guid AlbumID { get; set; }
 
-        public IEnumerable<string> Image { get; set; }
+        public IEnumerable<string> Images { get; set; }
 
     }
 }

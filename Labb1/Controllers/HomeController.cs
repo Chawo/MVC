@@ -45,7 +45,7 @@ namespace Labb1.Controllers
         {
             var photos = new ModelGallery()
             {
-                Image = Directory.EnumerateFiles(Server.MapPath("~/Images/")).Select(fn => "~/Images/" + Path.GetFileName(fn))
+                Images = Directory.EnumerateFiles(Server.MapPath("~/Images/")).Select(fn => "~/Images/" + Path.GetFileName(fn))
             };
              
 

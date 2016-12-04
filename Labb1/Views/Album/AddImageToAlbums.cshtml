@@ -7,11 +7,13 @@
 <h2>AddImageToAlbums</h2>
 @using (Html.BeginForm())
 {
+    @Html.AntiForgeryToken()
     foreach (var image in Model.Images)
     {
         <div>
-            <img src="~/Images/@image.Name" />
             <input type="checkbox" name="images[]" value="@image.Id" />
+            <img src="~/Images/@image.Name" width="400px"/><br /><br />
+            
         </div>
     }
     <select name="albumID">

@@ -11,7 +11,6 @@ namespace Labb1.Controllers
     public class AlbumController : Controller
     {
         static List<AlbumModel> Albums = new List<AlbumModel>();
-        // GET: Album
         public ActionResult CreateAlbum()
         {
             return View();
@@ -44,10 +43,16 @@ namespace Labb1.Controllers
         {
             var album = Albums.FirstOrDefault(x => x.AlbumID == albumID);
             foreach (var image in images)
-            {
-                album.Images.Add(HomeController.Images.FirstOrDefault(x => x.Id == image));
+            { 
+                album.AlbumListOfImages.Add(HomeController.Images.FirstOrDefault(x => x.Id == image));
             }
             return Content("OK!");
+        }
+
+        public ActionResult ImageToAlbums(Guid albumID)
+        {
+            var a = Albums.First(x => x.AlbumID == albumID);
+            return View(Albums);
         }
 
     }

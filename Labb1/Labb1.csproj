@@ -286,6 +286,7 @@
     <Content Include="Views\Album\CreateAlbum.cshtml" />
     <Content Include="Views\Album\ListAlbums.cshtml" />
     <Content Include="Views\Album\AddImageToAlbums.cshtml" />
+    <Content Include="Views\Album\ImageToAlbums.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Albums\" />

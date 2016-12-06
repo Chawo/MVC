@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace Labb1.Models
+namespace Labb1Library
 {
-    public class ModelGallery
+    class ModelGallery
     {
         [Key]
         public Guid Id { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<Comments> ImageComments { get; set; }
-        public AlbumModel AlbumID { get; set; } 
+        public AlbumModel AlbumID { get; set; }
     }
 }

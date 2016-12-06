@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace Labb1.Models
+namespace MyDataForLabb1.Models
 {
     public class ModelGallery
     {
@@ -13,6 +14,6 @@ namespace Labb1.Models
         public string Name { get; set; }
 
         public virtual ICollection<Comments> ImageComments { get; set; }
-        public AlbumModel AlbumID { get; set; } 
+        public AlbumModel AlbumID { get; set; }
     }
 }

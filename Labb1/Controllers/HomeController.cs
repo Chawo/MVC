@@ -42,13 +42,7 @@ namespace Labb1.Controllers
         }
 
         public ActionResult Gallery()
-        {
-            var photos = new ModelGallery()
-            {
-                Images = Directory.EnumerateFiles(Server.MapPath("~/Images/")).Select(fn => "~/Images/" + Path.GetFileName(fn))
-            };
-             
-
+        {  
             return View(Images);
 
         }

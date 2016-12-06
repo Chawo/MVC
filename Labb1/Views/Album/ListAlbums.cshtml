@@ -4,7 +4,7 @@
     ViewBag.Title = "ListAlbums";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+ 
 <h2>ListAlbums</h2>
 
 <p>
@@ -40,9 +40,7 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.AlbumID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AlbumID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AlbumID })
-            @Html.ActionLink("ShowAlbum", "ImageToAlbums", new { id = item.AlbumID })
+            @Html.ActionLink("ShowAlbum", "ImagesInAlbums", new { AlbumID = item.AlbumID })
         </td>
     </tr>
 }

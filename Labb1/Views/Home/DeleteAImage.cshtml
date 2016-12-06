@@ -18,9 +18,14 @@
             @Html.DisplayFor(model => model.Name)
         </dd> 
     </dl>
-
-    @using (Html.BeginForm())
+@{
+    var ajaxOptions = new AjaxOptions
     {
+        HttpMethod = "POST"
+    };
+}
+@using (Ajax.BeginForm("DeleteAImage", "Home", ajaxOptions))
+{
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

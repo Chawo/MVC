@@ -8,7 +8,13 @@
 
 <img src="~/Images/@Model.Name" width="1000px"/>
 
-@using (Html.BeginForm())
+@{
+    var ajaxOptions = new AjaxOptions
+    {
+        HttpMethod = "POST"
+    };
+}
+@using (Ajax.BeginForm("ShowImage", "Home", ajaxOptions))
 {
     @Html.AntiForgeryToken()
    <div class="form-actions no-color">

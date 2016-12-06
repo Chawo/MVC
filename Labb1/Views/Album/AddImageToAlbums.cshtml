@@ -5,7 +5,13 @@
 }
 
 <h2>AddImageToAlbums</h2>
-@using (Html.BeginForm())
+@{
+    var ajaxOptions = new AjaxOptions
+    {
+        HttpMethod = "POST"
+    };
+}
+@using (Ajax.BeginForm("AddImageToAlbums", "Home", ajaxOptions))
 {
     @Html.AntiForgeryToken()
     foreach (var image in Model.Images)
@@ -23,4 +29,6 @@
         }
     </select>
     <input type="submit" value="Add To Album" class="btn btn-default" />
+
+
 }

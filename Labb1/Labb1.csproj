@@ -286,7 +286,7 @@
     <Content Include="Views\Album\CreateAlbum.cshtml" />
     <Content Include="Views\Album\ListAlbums.cshtml" />
     <Content Include="Views\Album\AddImageToAlbums.cshtml" />
-    <Content Include="Views\Album\ImageToAlbums.cshtml" />
+    <Content Include="Views\Album\ImagesInAlbums.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Albums\" />
@@ -304,6 +304,12 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyDataForLabb1\MyDataForLabb1.csproj">
+      <Project>{bc84a743-e9a1-44f2-9b24-ba724e247c08}</Project>
+      <Name>MyDataForLabb1</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

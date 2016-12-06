@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-
-namespace Labb1.Models
+namespace Labb1Library
 {
-    public class AlbumModel
+    class AlbumModel
     {
         [Key]
         public Guid AlbumID { get; set; }
@@ -15,10 +15,5 @@ namespace Labb1.Models
         public DateTime Date { get; set; }
         public virtual ICollection<Comments> Comments { get; set; }
         public virtual ICollection<ModelGallery> AlbumListOfImages { get; set; }
-
-        //public List<Comments> Comments = new List<Comments>();
-        //public List<ModelGallery> AlbumListOfImages = new List<ModelGallery>();
-
     }
 }
-    

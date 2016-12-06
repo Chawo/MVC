@@ -1,0 +1,40 @@
+﻿@model Labb1.Models.AlbumModel
+
+@{
+    ViewBag.Title = "ImagesInAlbums";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ImagesInAlbums</h2>
+
+@foreach (var item in Model.AlbumListOfImages)
+{
+    <img src="~/Images/@item.Name" />
+    
+}
+@{
+    var ajaxOptions = new AjaxOptions
+    {
+        HttpMethod = "POST"
+    };
+}
+@using (Ajax.BeginForm("ImagesInAlbums", "Album", ajaxOptions))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-actions no-color">
+        <input type="text" name="AlbumComment" id="AlbumComment" />
+        <input type="submit" value="Add" class="btn btn-default" /> |
+        <br />
+        @{
+            if (Model.Comments != null)
+            {
+                foreach (var comment in Model.Comments)
+                {
+                    @comment.CommentsAlbums<br />
+                }
+            }
+
+        }
+    </div>
+
+            }

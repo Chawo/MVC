@@ -7,16 +7,18 @@ using MyDataForLabb1.Models;
 
 namespace MyDataForLabb1.Repositories
 {
-    public class AlbumRepositories
+    
+    public class AlbumRepositories 
     {
-        public List<AlbumModel> GetAllAlbums()
+
+        public IEnumerable<AlbumModel> GetAllAlbums()
         {
 
             using (var ctx = new Labb1Context())
-            {
-                var Albums = ctx.album.ToList();
-                return Albums;
+            { 
+                return ctx.album.ToList();
             }
+
         }
 
     }

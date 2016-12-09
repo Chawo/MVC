@@ -14,7 +14,7 @@ namespace Labb1.Models
         public string Description { get; set; }
         public DateTime Date { get; set; }
         public virtual ICollection<Comments> Comments { get; set; }
-        public virtual ICollection<ModelGallery> AlbumListOfImages { get; set; }
+        public virtual ICollection<AlbumImages> AlbumListOfImages { get; set; }
 
         //public List<Comments> Comments = new List<Comments>();
         //public List<ModelGallery> AlbumListOfImages = new List<ModelGallery>();

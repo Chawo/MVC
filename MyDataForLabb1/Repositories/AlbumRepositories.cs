@@ -16,10 +16,53 @@ namespace MyDataForLabb1.Repositories
 
             using (var ctx = new Labb1Context())
             { 
-                return ctx.album.ToList();
+                return ctx.album.Include("AlbumListOfImages").ToList();
             }
 
         }
 
+        public void AddImageToAlbum(Guid imageID, Guid albumID)
+        {
+
+            using (var ctx = new Labb1Context())
+            {
+                var AddImagesToAlbum = new AlbumImages()
+                {
+                    AlbumID = albumID,
+                    Id = imageID
+                };
+                ctx.albumImage.Add(AddImagesToAlbum);
+                ctx.SaveChanges();
+
+            }
+
+        }
+
+        public void AddCommentToAlbum(Guid id, string albumComment)
+        {
+            using (var ctx = new Labb1Context())
+            {
+                var addCommentToAlbum = new Comments()
+                {
+                    Id = id,
+                    CommentsAlbums = albumComment
+                };
+                ctx.comment.Add(addCommentToAlbum);
+                ctx.SaveChanges();
+            }
+        }
+
+        //public void ShowImagesInAlbum(Guid AlbumID)
+        //{
+        //    using (var ctx = new Labb1Context())
+        //    {
+        //        var album = GetAllAlbums().First(x => x.AlbumID == AlbumID);
+        //        foreach (var item in album.AlbumListOfImages)
+        //        {
+
+        //        }
+
+        //    }
+        //}
     }
 }

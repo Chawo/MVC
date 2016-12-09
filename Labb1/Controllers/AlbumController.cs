@@ -18,8 +18,9 @@ namespace Labb1.Controllers
     {
         //public static List<AlbumModel> Albums = new List<AlbumModel>();
 
-        AlbumRepositories Albumrepo = new AlbumRepositories();
-        
+        private AlbumRepositories Albumrepo = new AlbumRepositories();
+        private ImageRepositories imageRepo = new ImageRepositories();
+
 
         public ActionResult CreateAlbum()
         {
@@ -51,40 +52,61 @@ namespace Labb1.Controllers
             //return View(Albums);
         }
 
-        //public ActionResult AddImageToAlbums()
-        //{
-        //    var imageToAlbum = new AlbumImages();
-        //    imageToAlbum.Images = HomeController.Images;
-        //    imageToAlbum.Albums = AlbumController.Albums;
-        //    return View(imageToAlbum);
-        //}
+        public ActionResult AddImageToAlbums()
+        {
+            using (var ctx = new Labb1Context())
+            {
+                var ListOfImages = ctx.image.ToList();
+                var ListOfAlbum = ctx.album.ToList();
 
-        //[HttpPost]
-        //public ActionResult AddImageToAlbums(IEnumerable<Guid> images, Guid albumID)
-        //{
+                var imageToAlbum = new AlbumImages();
+                imageToAlbum.Images = ListOfImages;
+                imageToAlbum.Albums = ListOfAlbum;
+                return View(imageToAlbum);
+            }
+            //var imageToAlbum = new AlbumImages();
+            //imageToAlbum.Images = HomeController.Images;
+            //imageToAlbum.Albums = AlbumController.Albums;
+            //return View(imageToAlbum);
+        }
 
-        //    var album = Albums.FirstOrDefault(x => x.AlbumID == albumID);
-        //    foreach (var image in images)
-        //    {
+        [HttpPost]
+        public ActionResult AddImageToAlbums(IEnumerable<Guid> images, Guid albumID)
+        {
+            foreach (var imageID in images)
+            {
+                Albumrepo.AddImageToAlbum(imageID, albumID);
+            }
+            //var album = Albums.FirstOrDefault(x => x.AlbumID == albumID);
+            //foreach (var image in images)
+            //{
 
-        //        album.AlbumListOfImages.Add(HomeController.Images.FirstOrDefault(x => x.Id == image));
-        //    }
-        //    return Content("OK!");
-        //}
+            //    album.AlbumListOfImages.Add(HomeController.Images.FirstOrDefault(x => x.Id == image));
+            //}
+            return Content("OK!");
+        }
 
-        //public ActionResult ImagesInAlbums(Guid AlbumID)
-        //{
-        //    var a = Albums.First(x => x.AlbumID == AlbumID);
-        //    return View(a);
-        //}
+        public ActionResult ImagesInAlbums(Guid AlbumID)
+        {
+            using (var ctx = new Labb1Context())
+            {
+                var album = Albumrepo.GetAllAlbums().First(x => x.AlbumID == AlbumID);
+                
+                return View(album);
 
-        //[HttpPost]
-        //public ActionResult ImagesInAlbums(Guid AlbumID, string AlbumComment)
-        //{
-        //    var commentForAlbum = Albums.First(x => x.AlbumID == AlbumID);
-        //    commentForAlbum.Comments.Add(new Comments { CommentsAlbums = AlbumComment });
-        //    return View(commentForAlbum);
-        //}
+            }
+            //var a = Albums.First(x => x.AlbumID == AlbumID);
+        }
+
+        [HttpPost]
+        public ActionResult ImagesInAlbums(Guid AlbumID, string AlbumComment)
+        {
+            Albumrepo.AddCommentToAlbum(AlbumID, AlbumComment);
+            return View();
+            //var commentForAlbum = Albums.First(x => x.AlbumID == AlbumID);
+            //commentForAlbum.Comments.Add(new Comments { CommentsAlbums = AlbumComment });
+            //return View(commentForAlbum);
+        }
 
 
     }

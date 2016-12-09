@@ -1,4 +1,4 @@
-﻿@model Labb1.Models.AlbumImages
+﻿@model MyDataForLabb1.Models.AlbumImages
 
 @{
     ViewBag.Title = "AddImageToAlbums";
@@ -11,7 +11,7 @@
         HttpMethod = "POST"
     };
 }
-@using (Ajax.BeginForm("AddImageToAlbums", "Home", ajaxOptions))
+@using (Ajax.BeginForm("AddImageToAlbums", "Album", ajaxOptions))
 {
     @Html.AntiForgeryToken()
     foreach (var image in Model.Images)

@@ -9,8 +9,7 @@ namespace MyDataForLabb1.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            ContextKey = "MyDataForLabb1.Labb1Context";
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(MyDataForLabb1.Labb1Context context)

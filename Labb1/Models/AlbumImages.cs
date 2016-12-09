@@ -10,8 +10,10 @@ namespace Labb1.Models
     {
         
         [Key]
-        public Guid Id { get; set; }
+        public Guid Id_ { get; set; }
+        public ModelGallery Id { get; set; }
         public virtual ICollection<ModelGallery> Images { get; set; }
+        public AlbumModel AlbumID { get; set; }
         public virtual ICollection<AlbumModel> Albums { get; set; }
         //public List<ModelGallery> Images { get; set; }
         //public List<AlbumModel> Albums { get; set; }

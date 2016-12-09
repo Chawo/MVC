@@ -1,4 +1,4 @@
-﻿@model List<Labb1.Models.ModelGallery>
+﻿@model List<MyDataForLabb1.Models.ModelGallery>
 @{
     ViewBag.Title = "My Photo Gallery";
 
@@ -21,7 +21,7 @@
 
 @section bottom{ 
 <h2> @Html.Label("Latest image uploaded"):</h2>
-    <img src="~/Images/@Model.Last().Name" width="100px" />
-    <p>@Html.Label(Model.Last().Name.ToString())</p>
-    <p>@Html.Label(Model.Last().Id.ToString())</p>
+    <img src="~/Images/@Model.OrderBy(x=>x.dateAdded).Last().Name" width="100px" />
+    <p>@Html.Label(Model.OrderBy(x => x.dateAdded).Last().Name.ToString())</p>
+    <p>@Html.Label(Model.OrderBy(x => x.dateAdded).Last().Id.ToString())</p>
 }

@@ -12,8 +12,9 @@ namespace MyDataForLabb1.Models
         [Key]
         public Guid Id { get; set; }
         public string Name { get; set; }
-
         public virtual ICollection<Comments> ImageComments { get; set; }
         public AlbumModel AlbumID { get; set; }
+        public DateTime dateAdded { get; set; }
+
     }
 }

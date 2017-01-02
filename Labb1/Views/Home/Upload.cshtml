@@ -1,27 +1,27 @@
 ﻿@model  MyDataForLabb1.Models.ModelGallery
 @{
     ViewBag.Title = "Upload";
-}
+    
+} 
 
-<h2>Upload</h2>
+
+<h2>Upload</h2> 
 @{
     var ajaxOptions = new AjaxOptions
     {
         HttpMethod = "POST"
-    };
+    }; 
+      
 } 
+ 
+<div id="spinner" class="spinner" style="display:none;">
+    <img id="img-spinner" src="~/ForWeb/ajax-loader.gif" alt="Loading" />
+</div>
+
 @using (Ajax.BeginForm("Upload","Home",ajaxOptions, new { enctype = "multipart/form-data" }
                 ))
 
-{
-    @*<div class="form-group">
-        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } } )<br />
-            
-            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-        </div>
-    </div>*@
+{ 
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
@@ -34,9 +34,14 @@
     <br>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Upload" class="btn btn-default" />
+            <input type="submit" value="Upload" class="btn btn-default" id="button-upload"/>
         </div>
     </div>
+
+
+
 }
 
-
+@section scripts{ 
+<script src="~/Scripts/LoadingImage.js"></script> 
+}

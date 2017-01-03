@@ -26,7 +26,7 @@ namespace MyDataForLabb1.Repositories
                 var newCommentForImage = new Comments
                 {
                     Id = Guid.NewGuid(),
-                    CommentsImages = ImageComment
+                     CommentsImages = ImageComment
 
                 };
 

@@ -14,6 +14,6 @@ namespace MyDataForLabb1.Models
         public Guid Id { get; set; }
         public string CommentsImages { get; set; }
         public string CommentsAlbums { get; set; }
-
+ 
     }
 }

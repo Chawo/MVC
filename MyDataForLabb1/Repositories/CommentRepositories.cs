@@ -18,5 +18,22 @@ namespace MyDataForLabb1.Repositories
             }
 
         }
+
+        public void AddComment(Guid Id, string ImageComment)
+        {
+            using (var ctx = new Labb1Context())
+            {
+                var newCommentForImage = new Comments
+                {
+                    Id = Guid.NewGuid(),
+                    CommentsImages = ImageComment
+
+                };
+
+                ctx.comment.Add(newCommentForImage);
+
+                ctx.SaveChanges();
+            }
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace MyDataForLabb1.Repositories
         {
             using (var ctx = new Labb1Context())
             {
-                return ctx.image.ToList();
+                 return ctx.image.Include("ImageComments").ToList();
             }
         }
 
@@ -32,8 +32,7 @@ namespace MyDataForLabb1.Repositories
 
                 ctx.SaveChanges();
             }
-        }
-
+        } 
         public void Delete(Guid id)
         {
             using (var ctx = new Labb1Context())

@@ -57,6 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Labb1Context.cs" />
+    <Compile Include="Migrations\201701030155148_Config.cs" />
+    <Compile Include="Migrations\201701030155148_Config.Designer.cs">
+      <DependentUpon>201701030155148_Config.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AlbumImages.cs" />
     <Compile Include="Models\AlbumModel.cs" />
@@ -73,6 +77,11 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201701030155148_Config.resx">
+      <DependentUpon>201701030155148_Config.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

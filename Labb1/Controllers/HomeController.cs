@@ -15,6 +15,7 @@ namespace Labb1.Controllers
     public class HomeController : Controller
     {
         private ImageRepositories imageRepo = new ImageRepositories();
+        private CommentRepositories commentRepo = new CommentRepositories();
 
         public ActionResult Gallery()
         {
@@ -65,6 +66,24 @@ namespace Labb1.Controllers
             }
             return RedirectToAction("Gallery");
         }
+
+        public ActionResult ShowImage(Guid Id)
+        {
+            var showImage = imageRepo.GetAllImages().FirstOrDefault(x => x.Id == Id);
+             return View(showImage);
+
+        }
+
+        [HttpPost]
+        public ActionResult ShowImage(Guid Id, string ImageComment)
+        {
+            var showImage = imageRepo.GetAllImages().FirstOrDefault(x => x.Id == Id);
+            commentRepo.AddComment(showImage.Id, ImageComment);
+            return View(showImage);
+
+        }
+
+        //            p.ImageComments.Add(new Comments { CommentsImages = ImageComment });
 
         ////*************** Här börjar den gamla koden utan databas
         ////*************** Här börjar den gamla koden utan databas

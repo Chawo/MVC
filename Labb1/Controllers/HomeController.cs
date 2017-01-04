@@ -69,7 +69,7 @@ namespace Labb1.Controllers
 
         public ActionResult ShowImage(Guid Id)
         {
-            var showImage = imageRepo.GetAllImages().FirstOrDefault(x => x.Id == Id);
+            var showImage = commentRepo.GetAllImagesComment().FirstOrDefault(x => x.Id == Id);
              return View(showImage);
 
         }

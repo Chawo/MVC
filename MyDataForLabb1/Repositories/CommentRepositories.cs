@@ -13,7 +13,7 @@ namespace MyDataForLabb1.Repositories
         {
             using (var ctx = new Labb1Context())
             {
-                return ctx.image.Include("ImageComments").ToList();
+                 return ctx.image.Include("ImageComments").ToList();
             }
         }
 

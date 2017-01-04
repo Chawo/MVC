@@ -44,7 +44,6 @@ namespace MyDataForLabb1.Repositories
             {
                 var addCommentToAlbum = new Comments()
                 {
-                    Id = id,
                     CommentsAlbums = albumComment
                 };
                 ctx.comment.Add(addCommentToAlbum);

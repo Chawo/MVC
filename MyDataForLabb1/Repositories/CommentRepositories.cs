@@ -9,30 +9,33 @@ namespace MyDataForLabb1.Repositories
 {
     public class CommentRepositories
     {
-        public IEnumerable<ModelGallery> GetAllCommentForImages()
+        public IEnumerable<ModelGallery> GetAllImagesComment()
         {
-
             using (var ctx = new Labb1Context())
             {
-                return ctx.image.ToList();
+                return ctx.image.Include("ImageComments").ToList();
             }
-
         }
 
-        public void AddComment(Guid Id, string ImageComment)
+        public void AddComment(ModelGallery image, string ImageComment)
         {
             using (var ctx = new Labb1Context())
             {
-                var newCommentForImage = new Comments
+                var CommentImage = ctx.image.First(a => a.Id == image.Id);
+
+                if (CommentImage != null)
                 {
-                    Id = Guid.NewGuid(),
-                     CommentsImages = ImageComment
+                    var MYCOMMENT = new Comments()
+                    {
+                        CommentsImages = ImageComment,
+                        ModelGallery_Id = CommentImage
+                    }; 
 
-                };
+                    ctx.comment.Add(MYCOMMENT);
+                    ctx.SaveChanges();
+                }
 
-                ctx.comment.Add(newCommentForImage);
-
-                ctx.SaveChanges();
+                
             }
         }
     }

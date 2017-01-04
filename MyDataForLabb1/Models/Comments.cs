@@ -11,9 +11,10 @@ namespace MyDataForLabb1.Models
     public class Comments
     {
         [Key]
-        public Guid Id { get; set; }
+        public int CommentId { get; set; }
         public string CommentsImages { get; set; }
         public string CommentsAlbums { get; set; }
- 
+        public virtual ModelGallery ModelGallery_Id { get; set; }
+
     }
 }

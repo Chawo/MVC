@@ -83,6 +83,14 @@ namespace Labb1.Controllers
 
         }
 
+        public ActionResult LoadComments( )
+        {
+            var showImage = commentRepo.GetAllComment();
+             
+            return PartialView("LoadComments", showImage);
+
+        }
+
         //            p.ImageComments.Add(new Comments { CommentsImages = ImageComment });
 
         ////*************** Här börjar den gamla koden utan databas

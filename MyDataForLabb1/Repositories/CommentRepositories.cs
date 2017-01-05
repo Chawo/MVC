@@ -17,6 +17,14 @@ namespace MyDataForLabb1.Repositories
             }
         }
 
+        public IEnumerable<Comments> GetAllComment()
+        {
+            using (var ctx = new Labb1Context())
+            {
+                return ctx.comment.ToList();
+            }
+        }
+
         public void AddComment(ModelGallery image, string ImageComment)
         {
             using (var ctx = new Labb1Context())

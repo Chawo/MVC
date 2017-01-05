@@ -23,25 +23,19 @@
         <input type="submit" value="Add" class="btn btn-default" /> |
         <br />
 
-        <div id="aa"> 
-            @foreach (var comment in Model.ImageComments)
-            {
-                @comment.CommentsImages<br />
-
-            }
-        </div>
-
-
-
+            @*<p id="comment"></p><br />*@
+          @*@foreach (var item in Model.ImageComments)
+          {
+              @item.CommentsImages<br />
+          }*@
+ 
+        <div id="comment">
+            @{Html.RenderAction("LoadComments");}
     </div>
 
-    <script>
-var refreshId = setInterval(function()
-{
-    $('#aa').fadeIn("slow").load('ShowImage.cshtml').fadeOut("slow");
-}, 800); 
-         
 
-    </script>
+
+    </div> 
                 }
+
 

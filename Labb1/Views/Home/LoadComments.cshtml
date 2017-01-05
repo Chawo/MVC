@@ -1,0 +1,28 @@
+﻿@model IEnumerable<MyDataForLabb1.Models.Comments>
+ 
+ 
+@foreach (var item in Model)
+{
+    <tr >
+    <td id="comment">@Html.DisplayFor(modelItem => item.CommentsImages)<br /></td> 
+    </tr>
+}
+
+ 
+<script>
+        //var refreshId = setInterval(function()
+        //{
+        //    $('#comment').fadeIn("slow").load('LoadComments.cshtml').fadeOut("slow");
+        //}, 800);
+
+    setInterval(function () {
+        loadComments()
+    }, 5000);
+
+
+       function loadComments() {
+           $('#comment').fadeToggle("slow").load('LoadComments') ;
+        }
+
+
+</script>
